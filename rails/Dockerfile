@@ -31,7 +31,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends -y nodejs default-mysql-client pv
 
 # [Optional] Uncomment this line to install additional gems.
-RUN gem install bundler:1.17.3 rails:5.2.4.3
+RUN gem install bundler:1.17.3 rails:5.2.4.3 solargraph
 
 # [Optional] Uncomment this line to install global node packages.
 ARG NODE_VERSION="lts/*"
