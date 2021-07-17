@@ -18,7 +18,9 @@
 		"eamodio.gitlens",
 		"donjayamanne.githistory",
 		"rebornix.Ruby",
-		"walkme.ruby-extension-pack"
+		"walkme.ruby-extension-pack",
+		"zxh404.vscode-proto3",
+		"redhat.vscode-yaml"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
