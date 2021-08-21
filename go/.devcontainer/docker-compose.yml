@@ -6,9 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        # On Linux, you may need to update USER_UID and USER_GID below if not your local UID is not 1000.
-        USER_UID: 1000
-        USER_GID: 1000
+        VARIANT: "1.17"
+        NODE_VERSION: "lts/*"
 
     init: true
     volumes:
@@ -19,7 +18,7 @@ services:
 
     # Overrides default command so things don't shut down after the process ends.
     entrypoint: /usr/local/share/docker-init.sh
-    command: sleep infinity 
+    command: sleep infinity
 
     # Uncomment the next four lines if you will use a ptrace-based debuggers like C++, Go, and Rust.
     cap_add:
@@ -28,7 +27,7 @@ services:
       - seccomp:unconfined
 
     # Uncomment the next line to use a non-root user for all processes.
-    user: vscode
+    # user: vscode
 
     # Use "forwardPorts" in **devcontainer.json** to forward an app port locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
