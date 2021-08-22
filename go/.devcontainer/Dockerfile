@@ -13,12 +13,12 @@ ARG UPGRADE_PACKAGES="true"
 ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
-ARG ENABLE_NONROOT_DOCKER="true"
+
 
 RUN bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "true" \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
-RUN bash /tmp/library-scripts/docker-debian.sh "${ENABLE_NONROOT_DOCKER}" "/var/run/docker-host.sock" "/var/run/docker.sock" "${USERNAME}"
+RUN bash /tmp/library-scripts/docker-debian.sh "true" "/var/run/docker-host.sock" "/var/run/docker.sock" "${USERNAME}" "false"
 
 # Install Go tools
 ENV GO111MODULE=auto
@@ -38,7 +38,10 @@ RUN rm -rf /tmp/library-scripts
 
 # [Optional] Uncomment the next line to use go get to install anything else you need
 RUN go get -u github.com/golang/protobuf/protoc-gen-go
+RUN go get -u github.com/stretchr/testify
+RUN go get -u github.com/nite-coder/blackbear
 RUN go install github.com/golang/mock/mockgen@v1.6.0
+
 
 # [Optional] Uncomment this section to install additional OS packages.
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
