@@ -39,7 +39,6 @@ RUN rm -rf /tmp/library-scripts
 # [Optional] Uncomment the next line to use go get to install anything else you need
 RUN go get -u github.com/golang/protobuf/protoc-gen-go
 RUN go get -u github.com/stretchr/testify
-RUN go get -u github.com/nite-coder/blackbear
 RUN go install github.com/golang/mock/mockgen@v1.6.0
 
 
