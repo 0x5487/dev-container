@@ -1,5 +1,5 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.224.3/containers/go
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.234.0/containers/go
 {
 	"name": "Go",
 	"build": {
@@ -10,7 +10,7 @@
 			// Use -bullseye variants on local arm64/Apple Silicon.
 			"VARIANT": "1.18",
 			// Options
-			"NODE_VERSION": "lts/*"
+			"NODE_VERSION": "none"
 		}
 	},
 	"runArgs": [
@@ -25,27 +25,27 @@
 		"go.gopath": "/go",
 		"files.eol": "\n",
 		"remote.extensionKind": {
-		  "ms-azuretools.vscode-docker": "workspace"
+			"ms-azuretools.vscode-docker": "workspace"
 		},
 		"editor.codeActionsOnSaveTimeout": 3000,
 		"[go]": {
-		  "editor.formatOnSave": true,
-		  "editor.codeActionsOnSave": {
-			"source.organizeImports": true,
-		  },
-		  // Optional: Disable snippets, as they conflict with completion ranking.
-		  "editor.snippetSuggestions": "none"
+			"editor.formatOnSave": true,
+			"editor.codeActionsOnSave": {
+				"source.organizeImports": true
+			},
+			// Optional: Disable snippets, as they conflict with completion ranking.
+			"editor.snippetSuggestions": "none"
 		},
 		"[go.mod]": {
-		  "editor.formatOnSave": true,
-		  "editor.codeActionsOnSave": {
-			"source.organizeImports": true,
-		  },
+			"editor.formatOnSave": true,
+			"editor.codeActionsOnSave": {
+				"source.organizeImports": true
+			}
 		},
 		"gopls": {
-		  "usePlaceholders": false,
-		  "staticcheck": true,
-		  "experimentalWorkspaceModule": true
+			"usePlaceholders": false,
+			"staticcheck": true,
+			"experimentalWorkspaceModule": true
 		},
 		"go.autocompleteUnimportedPackages": true,
 		"go.gotoSymbol.includeImports": true,
@@ -56,8 +56,8 @@
 		"go.vetOnSave": "workspace",
 		"editor.formatOnSave": true,
 		"go.testFlags": [
-		  "-v",
-		  "-race"
+			"-v",
+			"-race"
 		],
 		"go.testTimeout": "10s",
 		"go.coverOnSingleTest": true,
@@ -81,6 +81,7 @@
 		"IBM.output-colorizer", // Colorize your output/test logs
 		"mohsen1.prettify-json", // Prettify JSON data
 		"zxh404.vscode-proto3", // Supports Proto syntax
+		"github.copilot"
 		// "jrebocho.vscode-random", // Generates random values
 		// "alefragnani.Bookmarks", // Manage bookmarks
 		// "quicktype.quicktype", // Paste JSON as code
@@ -89,7 +90,10 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "go mod download && go mod tidy",
+	// "postCreateCommand": "go version",
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode"
+	"remoteUser": "vscode",
+	"features": {
+		"docker-from-docker": "20.10"
+	}
 }
