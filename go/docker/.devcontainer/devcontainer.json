@@ -51,11 +51,7 @@
 					"usePlaceholders": false,
 					"staticcheck": true
 				},
-				"go.autocompleteUnimportedPackages": true,
-				"go.gotoSymbol.includeImports": true,
-				"go.gotoSymbol.includeGoroot": true,
 				"go.lintTool": "golangci-lint",
-				"go.buildOnSave": "workspace",
 				"go.lintOnSave": "workspace",
 				"go.vetOnSave": "workspace",
 				"editor.formatOnSave": true,
